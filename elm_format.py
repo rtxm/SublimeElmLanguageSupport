@@ -31,6 +31,22 @@ class ElmFormatCommand(sublime_plugin.TextCommand):
 
 		output, errors = p.communicate()
 
+		if errors.strip():
+			# If there is a error while running it. It should show the syntax errors
+			panel_view = self.view.window().create_output_panel("elm_format")
+			panel_view.set_read_only(False)
+			panel_view.run_command('erase_view')
+
+			# elm-format should have a --no-color option https://github.com/avh4/elm-format/issues/372
+			errors = re.sub('\x1b\[\d{1,2}m', '', errors.strip().decode())
+
+			panel_view.run_command('append', {'characters': errors})
+			panel_view.set_read_only(True)
+			self.view.window().run_command("show_panel", {"panel": "output.elm_format"})
+		else:
+			self.view.window().run_command("hide_panel", {"panel": "output.elm_format"})
+
+
 		if settings.get('debug', False):
 		    string_settings = sublime.load_settings('Elm User Strings.sublime-settings')
 		    print(string_settings.get('logging.prefix', '') + '(' + binary + ') ' + str(output.strip()), '\nerrors: ' + str(errors.strip()))
