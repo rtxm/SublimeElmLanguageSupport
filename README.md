@@ -12,6 +12,23 @@
 - Compatible with [Sublime Text 2] and [Sublime Text 3]
 - Syntax highlighting
 - Snippets for common Elm syntax (function, `case` … `of`, `let` … `in`, etc.)
+
+| Tab Trigger    | Description                                      |
+|----------------|--------------------------------------------------|
+| cof            | ``case … of``                                    |
+| cofm           | ``case … of (Maybe)``                            |
+| cofr           | ``case … of (Result)``                           |
+| fn             | ``Function (a -> b)``                            |
+| fn2            | ``Function (a -> b -> c)``                       |
+| fn3            | ``Function (a -> b -> c -> d)``                  |
+| fn4            | ``Function (a -> b -> c -> d -> e)``             |
+| imp            | ``import``                                       |
+| impas          | ``import … as``                                  |
+| let            | ``let … in …``                                   |
+| mod            | ``module``                                       |
+| type           | ``type``                                         |
+| typea          | ``type alias (Record)``                          |
+
 - Autocompletions plus type signature and documentation display for all functions inside packages in your `elm-package.json` file (requires [elm-oracle](https://www.npmjs.com/package/elm-oracle), which you can install with `npm install -g elm-oracle`)
     1. Bring up the type panel with `alt+up` or through the right-click context menu
     2. Close the type panel with `alt+down`
