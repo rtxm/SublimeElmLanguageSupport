@@ -63,7 +63,11 @@ contexts:
             1: keyword.other.elm
           pop: true
         - include: scope:source.glsl
-    - match: \b(type alias|type|case|of|let|in|as)\s+
+    - match: type( alias)? (\w+)
+      scope: keyword.other.elm
+      captures:
+        2: entity.name.type.elm
+    - match: \b(case|of|let|in|as)\s+
       scope: keyword.other.elm
     - match: \b(if|then|else)\s+
       scope: keyword.control.elm
