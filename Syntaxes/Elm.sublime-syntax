@@ -117,7 +117,7 @@ contexts:
     - match: '^(port\s+)?([a-z_][a-zA-Z0-9_'']*|\([|!%$+\-.,=</>]+\))\s*((:)([:]+)?)'
       captures:
         1: keyword.other.port.elm
-        2: entity.name.function.elm
+        2: entity.name.function.elm hide.from.goto_symbol
         4: keyword.other.colon.elm
         5: invalid
       push:
