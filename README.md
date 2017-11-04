@@ -18,6 +18,7 @@
 | cof            | ``case … of``                                    |
 | cofm           | ``case … of (Maybe)``                            |
 | cofr           | ``case … of (Result)``                           |
+| debug          | ``Debug.log``                                    |
 | fn             | ``Function (a -> b)``                            |
 | fn2            | ``Function (a -> b -> c)``                       |
 | fn3            | ``Function (a -> b -> c -> d)``                  |
