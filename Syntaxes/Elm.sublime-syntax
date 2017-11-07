@@ -182,7 +182,7 @@ contexts:
           comment: So named because I don't know what to call this.
           scope: meta.other.unknown.elm
   module_name:
-    - match: "[A-Z][A-Za-z._']*"
+    - match: "[A-Z][A-Za-z._'0-9]*"
       scope: support.other.module.elm
   type_signature:
     - match: '\(\s*([A-Z][A-Za-z]*)\s+([a-z][A-Za-z_'']*)\)\s*(=>)'
