@@ -14,7 +14,6 @@
     "error_format": "-- $type: $tag - $file:$line:$column\n$message\n",
     "info_format": ":: $info\n",
     "syntax": "Packages/Elm Language Support/Syntaxes/Elm Compile Messages.hidden-tmLanguage",
-    "color_scheme": "Packages/Color Scheme - Default/Sunburst.tmTheme",
     "null_device": "/dev/null",
     "warnings": "true",
     "osx":
