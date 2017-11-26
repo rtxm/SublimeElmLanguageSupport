@@ -42,6 +42,18 @@
             "warnings": "false"
         },
         {
+            "name": "Run - debug",
+            "cmd":
+            [
+                "elm-make",
+                "$file",
+                "--output={output}",
+                "--report=json",
+                "--debug",
+                "--yes"
+            ]
+        },
+        {
             "name": "Run - Ignore Warnings",
             "warnings": "false",
             "cmd":
