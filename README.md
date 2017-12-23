@@ -7,6 +7,11 @@
 2. Run `Package Control: Install Package` in the Command Palette (<kbd>Super+Shift+P</kbd>)
 3. Install [Elm][] or use [NPM][] (`npm i -g elm`)
 
+### Manual 
+
+1. Go to Packages directory
+2. Clone the repository `git clone https://github.com/elm-community/SublimeElmLanguageSupport.git 'Elm Language Support'`
+
 ## Features
 
 - Compatible with [Sublime Text 2] and [Sublime Text 3]
