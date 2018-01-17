@@ -14,7 +14,6 @@
     "error_format": "-- $type: $tag - $file:$line:$column\n$message\n",
     "info_format": ":: $info\n",
     "syntax": "Packages/Elm Language Support/Syntaxes/Elm Compile Messages.sublime-syntax",
-    "color_scheme": "Packages/Color Scheme - Default/Sunburst.tmTheme",
     "null_device": "/dev/null",
     "warnings": "true",
     "osx":
@@ -41,6 +40,18 @@
         {
             "name": "Ignore Warnings",
             "warnings": "false"
+        },
+        {
+            "name": "Run - debug",
+            "cmd":
+            [
+                "elm-make",
+                "$file",
+                "--output={output}",
+                "--report=json",
+                "--debug",
+                "--yes"
+            ]
         },
         {
             "name": "Run - Ignore Warnings",

@@ -1,6 +1,7 @@
 import json
 import re
 import string
+import sublime
 
 try:     # ST3
     from .elm_plugin import *
@@ -15,12 +16,12 @@ class ElmMakeCommand(default_exec.ExecCommand):
 
     # inspired by: http://www.sublimetext.com/forum/viewtopic.php?t=12028
     def run(self, error_format, info_format, syntax, color_scheme, null_device, warnings, **kwargs):
-        self.buffer = ''
+        self.buffer = b''
         self.warnings = warnings == "true"
         self.error_format = string.Template(error_format)
         self.info_format = string.Template(info_format)
         self.run_with_project(null_device=null_device, **kwargs)
-        self.style_output(syntax, color_scheme)
+        self.style_output(syntax)
 
     def run_with_project(self, cmd, working_dir, null_device, **kwargs):
         file_arg, output_arg = cmd[1:3]
@@ -37,8 +38,11 @@ class ElmMakeCommand(default_exec.ExecCommand):
         # ST2: TypeError: __init__() got an unexpected keyword argument 'syntax'
         super(ElmMakeCommand, self).run(cmd, working_dir=project_dir, **kwargs)
 
-    def style_output(self, syntax, color_scheme):
+    def style_output(self, syntax):
         self.output_view.set_syntax_file(syntax)
+        elm_setting = sublime.load_settings('Elm Language Support.sublime-settings')
+        user_setting = sublime.load_settings('Preferences.sublime-settings')
+        color_scheme = elm_setting.get('build_error_color_scheme') or user_setting.get('color_scheme')
         self.output_view.settings().set('color_scheme', color_scheme)
         if self.is_patched:
             self.debug_text = ''
