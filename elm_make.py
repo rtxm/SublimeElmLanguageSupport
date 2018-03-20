@@ -16,7 +16,7 @@ class ElmMakeCommand(default_exec.ExecCommand):
 
     # inspired by: http://www.sublimetext.com/forum/viewtopic.php?t=12028
     def run(self, error_format, info_format, syntax, null_device, warnings, **kwargs):
-        self.buffer = b''
+        self.buffer = ''
         self.warnings = warnings == "true"
         self.error_format = string.Template(error_format)
         self.info_format = string.Template(info_format)
@@ -53,10 +53,10 @@ class ElmMakeCommand(default_exec.ExecCommand):
         self.buffer += data
 
     def on_finished(self, proc):
-        result_strs = self.buffer.decode(self.encoding).split('\n')
-        flat_map = lambda f ,xss: sum(map(f, xss), [])
+        result_strs = self.buffer.split('\n')
+        flat_map = lambda f, xss: sum(map(f, xss), [])
         output_strs = flat_map(self.format_result, result_strs) + ['']
-        output_data = '\n'.join(output_strs).encode(self.encoding)
+        output_data = '\n'.join(output_strs)
         super(ElmMakeCommand, self).on_data(proc, output_data)
         super(ElmMakeCommand, self).on_finished(proc)
 
