@@ -15,8 +15,8 @@ default_exec = import_module('Default.exec')
 class ElmMakeCommand(default_exec.ExecCommand):
 
     # inspired by: http://www.sublimetext.com/forum/viewtopic.php?t=12028
-    def run(self, error_format, info_format, syntax, color_scheme, null_device, warnings, **kwargs):
-        self.buffer = b''
+    def run(self, error_format, info_format, syntax, null_device, warnings, **kwargs):
+        self.buffer = ''
         self.warnings = warnings == "true"
         self.error_format = string.Template(error_format)
         self.info_format = string.Template(info_format)
